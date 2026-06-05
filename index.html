@@ -9,6 +9,7 @@
 </head>
 <body>
 
+
 <div class="generator-box" style="max-width: 780px; margin: 20px auto; padding: 24px; background: #13161e; border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
   <h3 style="color: #c9a84c; margin-bottom: 15px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
     <span>⚡</span> AI-POWERED LAND ANALYSIS GENERATOR
@@ -20,16 +21,27 @@
       <input type="text" id="landName" value="Thong Lo Mixed-Use Plot" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
     </div>
     <div>
-      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">Location (City/Island)</label>
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">Location (City/Province)</label>
       <input type="text" id="landLocation" value="Bangkok CBD" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
-    </div>
-    <div>
-      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">Total Area (Rai / ไร่)</label>
-      <input type="number" id="landRai" value="4" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
     </div>
     <div>
       <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">Total Asking Price (Million THB)</label>
       <input type="number" id="askingPrice" value="1600" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 15px; border-top: 1px solid rgba(201,168,76,0.1); padding-top: 15px;">
+    <div>
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">จำนวนไร่ (Rai)</label>
+      <input type="number" id="landRai" value="4" min="0" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+    </div>
+    <div>
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">จำนวนงาน (Ngan)</label>
+      <input type="number" id="landNgan" value="0" min="0" max="3" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+    </div>
+    <div>
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">ตารางวา (Sq.Wah)</label>
+      <input type="number" id="landWah" value="0" min="0" max="99" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
     </div>
   </div>
 
