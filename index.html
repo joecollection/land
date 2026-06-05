@@ -3,28 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joe Collection — Land Profile</title>
+    <title>Joe Collection — AI Land Analysis Generator</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="generator-box" style="max-width: 780px; margin: 20px auto; padding: 24px; background: #13161e; border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+  <h3 style="color: #c9a84c; margin-bottom: 15px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
+    <span>⚡</span> AI-POWERED LAND ANALYSIS GENERATOR
+  </h3>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 15px;">
+    <div>
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">Project Name / Title</label>
+      <input type="text" id="landName" value="Thong Lo Mixed-Use Plot" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+    </div>
+    <div>
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">Location (City/Island)</label>
+      <input type="text" id="landLocation" value="Bangkok CBD" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+    </div>
+    <div>
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">Total Area (Rai / ไร่)</label>
+      <input type="number" id="landRai" value="4" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+    </div>
+    <div>
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">Total Asking Price (Million THB)</label>
+      <input type="number" id="askingPrice" value="1600" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+    </div>
+  </div>
+
+  <button onclick="generateLandAnalysisWithAI()" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #851c1c 0%, #a52020 50%); color: #f2ede6; border: none; font-weight: 700; cursor: pointer; letter-spacing: 0.15em; text-transform: uppercase; border-radius: 2px; transition: background 0.3s;">
+    Run AI Investment Engine
+  </button>
+</div>
+
 <div class="ticker-wrap">
   <div class="ticker-track">
-    <span class="ticker-item"><span class="dot"></span><span class="tag">FOR SALE</span><span class="sep">|</span>Hang Dong, Chiang Mai<span class="sep">·</span><span class="val">38 Rai</span></span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">ASKING PRICE</span><span class="sep">|</span><span class="val">THB 125,000,000</span></span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">ZONING</span><span class="sep">|</span>Yellow Zone — Agriculture/Low-Density Residential</span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">LAND TITLE</span><span class="sep">|</span><span class="val">Chanote (โฉนด)</span></span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">OPPORTUNITY</span><span class="sep">|</span>Luxury Compound · Wellness Retreat · Eco-Resort</span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">PRICE/RAI</span><span class="sep">|</span><span class="val">THB 3.29M / Rai</span></span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">JOE COLLECTION</span><span class="sep">|</span>Institutional-Grade Investment Advisory</span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">FOR SALE</span><span class="sep">|</span>Hang Dong, Chiang Mai<span class="sep">·</span><span class="val">38 Rai</span></span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">ASKING PRICE</span><span class="sep">|</span><span class="val">THB 125,000,000</span></span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">ZONING</span><span class="sep">|</span>Yellow Zone — Agriculture/Low-Density Residential</span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">LAND TITLE</span><span class="sep">|</span><span class="val">Chanote (โฉนด)</span></span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">OPPORTUNITY</span><span class="sep">|</span>Luxury Compound · Wellness Retreat · Eco-Resort</span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">PRICE/RAI</span><span class="sep">|</span><span class="val">THB 3.29M / Rai</span></span>
-    <span class="ticker-item"><span class="dot"></span><span class="tag">JOE COLLECTION</span><span class="sep">|</span>Institutional-Grade Investment Advisory</span>
+    <span class="ticker-item"><span class="dot"></span><span class="tag">LISTING STATUS</span><span class="sep">|</span><span id="tickName">Thong Lo Mixed-Use Plot</span><span class="sep">·</span><span id="tickRai" class="val">4 Rai</span></span>
+    <span class="ticker-item"><span class="dot"></span><span class="tag">TOTAL INVESTMENT</span><span class="sep">|</span><span id="tickPrice" class="val">THB 1,600,000,000</span></span>
+    <span class="ticker-item"><span class="dot"></span><span class="tag">LAND TITLE GRADE</span><span class="sep">|</span><span class="val">Chanote (โฉนด) — Freehold</span></span>
+    <span class="ticker-item"><span class="dot"></span><span class="tag">ADVISORY FIRM</span><span class="sep">|</span>JOE COLLECTION · Institutional Investment Dealmaker</span>
   </div>
 </div>
 
@@ -36,29 +55,28 @@
 <div class="card-wrap">
   <div class="profile-card">
     <div class="hero-img-wrap">
-      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=80" alt="Land parcel aerial view">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=80" alt="Land view">
       <div class="hero-overlay"></div>
-      <div class="hero-badge">🔖 Exclusive</div>
+      <div class="hero-badge">🔖 Exclusive Deal</div>
       <div class="hero-price">
         <div class="label">Asking Price</div>
-        <div class="amount">฿125M<span class="unit">THB</span></div>
+        <div id="cardPrice" class="amount">฿1,600M<span class="unit">THB</span></div>
       </div>
     </div>
 
     <div class="profile-body">
       <div class="profile-top">
         <div class="avatar-wrap">
-          <img class="avatar" src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=200&q=80" alt="Land profile">
+          <img class="avatar" src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=200&q=80" alt="Advisor Profile">
           <div class="avatar-dot"></div>
         </div>
         <div class="profile-meta">
-          <div class="land-title">Hang Dong Vacant Land<br>Chiang Mai</div>
-          <div class="land-subtitle">38 Rai · Prime Development Parcel</div>
+          <div id="cardTitle" class="land-title">Thong Lo Mixed-Use Plot<br>Bangkok CBD</div>
+          <div id="cardSubtitle" class="land-subtitle">4 Rai · Prime Development Parcel</div>
           <div class="meta-tags">
             <span class="meta-tag">Chanote Title</span>
-            <span class="meta-tag">Yellow Zone</span>
+            <span class="meta-tag">High Density Zone</span>
             <span class="meta-tag">Road Access</span>
-            <span class="meta-tag">Mountain View</span>
           </div>
         </div>
       </div>
@@ -67,89 +85,60 @@
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-val">38</div>
+          <div id="statRai" class="stat-val">4</div>
           <div class="stat-label">Rai Total</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">60,800</div>
+          <div id="statSqM" class="stat-val">6,400</div>
           <div class="stat-label">Sq.Metres</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">3.29M</div>
+          <div id="statPerRai" class="stat-val">400M</div>
           <div class="stat-label">THB / Rai</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">~20km</div>
-          <div class="stat-label">to CNX CBD</div>
+          <div id="statPerWa" class="stat-val">1.0M</div>
+          <div class="stat-label">THB / Sq.Wah</div>
         </div>
       </div>
 
       <div class="desc-block">
         <div class="desc-title">Property Overview</div>
-        <div class="desc-text">
-          A rare contiguous 38-Rai vacant land parcel located in Hang Dong district, Chiang Mai — one of Northern Thailand's most sought-after lifestyle and wellness corridors. Clean Chanote title. Direct road frontage. Panoramic mountain backdrop. Positioned within striking distance of luxury resort clusters and international schools, this parcel presents exceptional optionality for high-net-worth private compounds or institutional wellness retreat development.
+        <div id="propertyDesc" class="desc-text">
+          A premium contiguous development site located within a high-growth zone. Features verified Chanote title documentation and immediate access to primary public roads and utility infrastructure network. Perfect layout optimization potential for institutional investment asset placement.
         </div>
       </div>
 
-      <div class="desc-title">Key Property Data</div>
+      <div class="desc-title">Key Property Valuation Data</div>
       <div class="table-scroll">
-        <table class="data-table">
+        <table class="data-table" id="valuationTable">
           <thead>
             <tr>
               <th>Parameter</th>
-              <th>Detail</th>
-              <th>Benchmark</th>
-              <th>Status</th>
+              <th>Calculated Value</th>
+              <th>Benchmark Status</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Land Area</td>
-              <td class="highlight">38 Rai (60,800 m²)</td>
-              <td>Comparable lots: 15–50 Rai</td>
-              <td><span class="pill">✓ Prime Size</span></td>
+              <td>Land Metric Scale</td>
+              <td id="tableArea" class="highlight">4 Rai (6,400 m²)</td>
+              <td><span class="pill">✓ Verified</span></td>
             </tr>
             <tr>
-              <td>Asking Price</td>
-              <td class="highlight">THB 125,000,000</td>
-              <td>Area avg: THB 4–5M/Rai</td>
-              <td><span class="pill">✓ Below Mkt</span></td>
+              <td>Gross Deal Value</td>
+              <td id="tableTotal" class="highlight">THB 1,600,000,000</td>
+              <td><span class="pill">✓ Secure Target</span></td>
             </tr>
             <tr>
-              <td>Price per Rai</td>
-              <td class="highlight">THB 3,289,474</td>
-              <td>THB 3.5–5M/Rai (comp)</td>
-              <td><span class="pill">✓ Value</span></td>
+              <td>Calculated Rate / Rai</td>
+              <td id="tablePerRai" class="highlight">THB 400,000,000</td>
+              <td><span class="pill">✓ Market Indexed</span></td>
             </tr>
             <tr>
-              <td>Land Title</td>
-              <td class="highlight">Chanote (โฉนด)</td>
-              <td>Highest title grade</td>
-              <td><span class="pill">✓ Freehold</span></td>
-            </tr>
-            <tr>
-              <td>Zoning</td>
-              <td>Yellow Zone</td>
-              <td>Agri / Low-density res.</td>
-              <td><span class="pill">✓ Eligible</span></td>
-            </tr>
-            <tr>
-              <td>Road Frontage</td>
-              <td>Direct access — paved</td>
-              <td>Essential for development</td>
-              <td><span class="pill">✓ Confirmed</span></td>
-            </tr>
-            <tr>
-              <td>Utilities</td>
-              <td>Electric + Water (avail.)</td>
-              <td>On-site connection</td>
-              <td><span class="pill">✓ Ready</span></td>
-            </tr>
-            <tr>
-              <td>Distance to CNX</td>
-              <td>~20 km from CBD</td>
-              <td>25–35 min drive</td>
-              <td><span class="pill">✓ Accessible</span></td>
+              <td>Calculated Rate / Sq.Wah</td>
+              <td id="tablePerWa" class="highlight">THB 1,000,000</td>
+              <td><span class="pill">✓ Prime Tier</span></td>
             </tr>
           </tbody>
         </table>
@@ -157,58 +146,21 @@
 
       <div class="cta-row">
         <button class="btn btn-primary" onclick="openGallery()">
-          <span class="btn-icon">🖼</span> View Gallery
+          <span class="btn-icon">🖼</span> View Site Gallery
         </button>
         <button class="btn btn-secondary" onclick="openAnalysis()">
-          <span class="btn-icon">📊</span> Investment Analysis
+          <span class="btn-icon">📊</span> Run Investment Analysis
         </button>
       </div>
     </div>
 
     <div class="contact-footer">
       <div class="contact-info">
-        <strong>Monthon Mahakijdumrongnukul</strong>
-        Investment Advisory · Joe Collection<br>
-        📞 +66 XX-XXXX-XXXX &nbsp;·&nbsp; ✉ monthon@joecollection.co
+        <strong>JOE COLLECTION</strong>
+        Institutional Real Estate Advisory & Dealmaking<br>
+        ✉ joecollection.m@gmail.com
       </div>
-      <div class="contact-logo">JOE COLLECTION</div>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="galleryModal">
-  <div class="modal">
-    <div class="modal-header">
-      <div class="modal-title">Property Gallery</div>
-      <button class="modal-close" onclick="closeGallery()">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="">
-          <div class="g-label">Aerial Overview</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="">
-          <div class="g-label">Mountain Backdrop</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?w=600&q=80" alt="">
-          <div class="g-label">Road Frontage</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=80" alt="">
-          <div class="g-label">Landscape Character</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80" alt="">
-          <div class="g-label">Surrounding Area</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" alt="">
-          <div class="g-label">Natural Setting</div>
-        </div>
-      </div>
+      <div class="contact-logo">JOE LAND</div>
     </div>
   </div>
 </div>
@@ -216,98 +168,61 @@
 <div class="modal-overlay" id="analysisModal">
   <div class="modal">
     <div class="modal-header">
-      <div class="modal-title">Investment Analysis</div>
+      <div class="modal-title">AI Investment Analysis & Scenarios</div>
       <button class="modal-close" onclick="closeAnalysis()">✕</button>
     </div>
     <div class="modal-body">
       <div class="analysis-section">
-        <div class="analysis-h">Strategic Rationale</div>
-        <div class="analysis-text">
-          Hang Dong represents Chiang Mai's emerging luxury corridor — positioned between the international airport, established golf estates, and a burgeoning wellness tourism cluster. The 38-Rai parcel at THB 3.29M/Rai is priced at a material discount to comparable transactions, offering both capital appreciation and development yield optionality across two primary use cases.
+        <div class="analysis-h">AI Strategic Rationale</div>
+        <div id="aiRationale" class="analysis-text">
+          Select parameters and click generate to initiate AI core engine...
         </div>
       </div>
 
       <div class="analysis-section">
-        <div class="analysis-h">Development Scenarios</div>
+        <div class="analysis-h">Simulated Yield Horizons</div>
         <div class="kpi-row">
           <div class="kpi-box">
-            <div class="kpi-val">~30%</div>
-            <div class="kpi-label">Buildable Coverage (Est.)</div>
+            <div id="kpiDensity" class="kpi-val">High</div>
+            <div class="kpi-label">Development Intensity</div>
           </div>
           <div class="kpi-box">
-            <div class="kpi-val">2</div>
-            <div class="kpi-label">Primary Concepts</div>
+            <div id="kpiEfficiency" class="kpi-val">~85%</div>
+            <div class="kpi-label">Layout Efficiency</div>
           </div>
           <div class="kpi-box">
-            <div class="kpi-val">5–7yr</div>
-            <div class="kpi-label">Value Creation Horizon</div>
+            <div id="kpiTargetIRR" class="kpi-val">20-24%</div>
+            <div class="kpi-label">Projected Base IRR</div>
           </div>
-        </div>
-        <div class="table-scroll">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Concept</th>
-                <th>Units/Keys</th>
-                <th>Est. Dev. Cost</th>
-                <th>Est. GDV</th>
-                <th>IRR (Base)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="highlight">Luxury Compound</td>
-                <td>8–12 Villas</td>
-                <td>THB 320–450M</td>
-                <td>THB 600–800M</td>
-                <td class="highlight">18–22%</td>
-              </tr>
-              <tr>
-                <td class="highlight">Wellness Retreat</td>
-                <td>40–60 Keys</td>
-                <td>THB 280–380M</td>
-                <td>THB 500–680M</td>
-                <td class="highlight">15–20%</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
 
       <div class="analysis-section">
-        <div class="analysis-h">Risk Assessment</div>
+        <div class="analysis-h">Risk Matrix (Traffic Light System)</div>
         <div class="risk-grid">
           <div class="risk-item">
             <div class="risk-dot green"></div>
-            <div class="risk-text"><strong>Title Security</strong>Full Chanote freehold — lowest risk category</div>
+            <div class="risk-text"><strong>Title Security</strong>Verified Freehold Chanote — Zero litigation risk detected.</div>
           </div>
           <div class="risk-item">
             <div class="risk-dot green"></div>
-            <div class="risk-text"><strong>Market Demand</strong>Chiang Mai luxury tourism growing 12–18% p.a.</div>
+            <div class="risk-text"><strong>Infrastructure Edge</strong>Direct access to paved municipal roads and established high-capacity grids.</div>
           </div>
           <div class="risk-item">
             <div class="risk-dot yellow"></div>
-            <div class="risk-text"><strong>Zoning Compliance</strong>EIA and local plan approval required for resort use</div>
-          </div>
-          <div class="risk-item">
-            <div class="risk-dot yellow"></div>
-            <div class="risk-text"><strong>Infrastructure</strong>On-site road and utility extension costs to budget</div>
-          </div>
-          <div class="risk-item">
-            <div class="risk-dot green"></div>
-            <div class="risk-text"><strong>Liquidity</strong>Active land market — exit via trade sale or JV</div>
+            <div class="risk-text"><strong>Zoning & FAR Alignment</strong>Local construction ordinances require technical planning permissions.</div>
           </div>
           <div class="risk-item">
             <div class="risk-dot red"></div>
-            <div class="risk-text"><strong>Construction Risk</strong>Contractor quality and phasing discipline critical</div>
+            <div class="risk-text"><strong>Macro Liquidity</strong>Large-scale land plots require a 5-7 year deployment horizon to optimize exits.</div>
           </div>
         </div>
       </div>
 
       <div class="analysis-section">
         <div class="analysis-h">Advisory Conclusion</div>
-        <div class="analysis-text">
-          At THB 125M, this parcel represents a compelling land-bank and development platform for capital with a 5–7 year horizon. The price-per-Rai discount to current market comparables provides a structural margin of safety, while the dual-concept flexibility (residential compound vs. wellness hospitality) allows the acquirer to optimize against market conditions at time of development. Joe Collection recommends immediate site inspection and title due diligence.
+        <div id="aiConclusion" class="analysis-text">
+          Awaiting input engine simulation...
         </div>
       </div>
     </div>
