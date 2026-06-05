@@ -1,6 +1,12 @@
-// ── 📊 MODAL POPUP CONTROLLERS ──
+// ── 📊 MODAL POPUP CONTROLLERS (แผงควบคุมหน้าต่างเด้ง) ──
 function openGallery() {
-  alert("Gallery system ready. Template optimized for high-res drone photography captures.");
+  document.getElementById('galleryModal').classList.add('open');
+  document.body.style.overflow = 'hidden'; // ล็อกการเลื่อนหน้าจอด้านหลัง
+}
+
+function closeGallery() {
+  document.getElementById('galleryModal').classList.remove('open');
+  document.body.style.overflow = ''; // ปลดล็อกหน้าจอ
 }
 
 function openAnalysis() {
@@ -15,20 +21,32 @@ function closeAnalysis() {
 
 // ผูกฟังก์ชันปิดหน้าต่างกรณีคลิกพื้นหลังสีดำรอบตัวการ์ด
 document.addEventListener('DOMContentLoaded', () => {
-  const overlay = document.getElementById('analysisModal');
-  if(overlay) {
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
+  // สำหรับระบบบทวิเคราะห์
+  const analysisOverlay = document.getElementById('analysisModal');
+  if(analysisOverlay) {
+    analysisOverlay.addEventListener('click', (e) => {
+      if (e.target === analysisOverlay) {
         closeAnalysis();
+      }
+    });
+  }
+
+  // สำหรับระบบแกลเลอรีภาพ
+  const galleryOverlay = document.getElementById('galleryModal');
+  if(galleryOverlay) {
+    galleryOverlay.addEventListener('click', (e) => {
+      if (e.target === galleryOverlay) {
+        closeGallery();
       }
     });
   }
 });
 
-// ผูกปุ่มกด Escape บนแป้นพิมพ์เพื่อปิดหน้าต่างรีพอร์ต
+// ผูกปุ่มกด Escape บนแป้นพิมพ์เพื่อปิดหน้าต่างทุกบาน
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeAnalysis();
+    closeGallery();
   }
 });
 
@@ -75,6 +93,9 @@ function generateLandAnalysisWithAI() {
   document.getElementById('cardPrice').innerHTML = `฿${askingPriceMB}M<span class="unit">THB</span>`;
   document.getElementById('cardTitle').innerHTML = `${landName}<br>${location}`;
   document.getElementById('cardSubtitle').innerHTML = `${areaTextDisplay} · Prime Asset Opportunity`;
+
+  // อัปเดตข้อมูลหัวข้อแกลเลอรีภาพตามชื่อโครงการใหม่
+  document.getElementById('galleryTitle').innerText = `Photographic Records — ${landName}`;
 
   // อัปเดตข้อมูลกล่อง 4 Stats Grid
   document.getElementById('statRai').innerText = totalRaiCalculated.toFixed(2);
