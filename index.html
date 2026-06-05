@@ -9,50 +9,49 @@
 </head>
 <body>
 
-
-<div class="generator-box" style="max-width: 780px; margin: 20px auto; padding: 24px; background: #13161e; border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-  <h3 style="color: #c9a84c; margin-bottom: 15px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
+<div class="generator-box" style="max-width: 780px; margin: 20px auto; padding: 24px; background: #13161e; border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; z-index: 999;">
+  <h3 style="color: #c9a84c; margin-bottom: 15px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif;">
     <span>⚡</span> AI-POWERED LAND ANALYSIS GENERATOR
   </h3>
   
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 15px;">
     <div>
-      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">Project Name / Title</label>
-      <input type="text" id="landName" value="Thong Lo Mixed-Use Plot" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px; font-family: 'Montserrat', sans-serif;">Project Name / Title</label>
+      <input type="text" id="landName" value="Thong Lo Mixed-Use Plot" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px; font-family: 'Montserrat', sans-serif;">
     </div>
     <div>
-      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">Location (City/Province)</label>
-      <input type="text" id="landLocation" value="Bangkok CBD" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px; font-family: 'Montserrat', sans-serif;">Location (City/Province)</label>
+      <input type="text" id="landLocation" value="Bangkok CBD" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px; font-family: 'Montserrat', sans-serif;">
     </div>
     <div>
-      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">Total Asking Price (Million THB)</label>
-      <input type="number" id="askingPrice" value="1600" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px; font-family: 'Montserrat', sans-serif;">Total Asking Price (Million THB)</label>
+      <input type="number" id="askingPrice" value="1600" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px; font-family: 'Montserrat', sans-serif;">
     </div>
   </div>
 
   <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 15px; border-top: 1px solid rgba(201,168,76,0.1); padding-top: 15px;">
     <div>
-      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">จำนวนไร่ (Rai)</label>
-      <input type="number" id="landRai" value="4" min="0" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px; font-family: 'Montserrat', sans-serif;">จำนวนไร่ (Rai)</label>
+      <input type="number" id="landRai" value="4" min="0" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px; font-family: 'Montserrat', sans-serif;">
     </div>
     <div>
-      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">จำนวนงาน (Ngan)</label>
-      <input type="number" id="landNgan" value="0" min="0" max="3" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px; font-family: 'Montserrat', sans-serif;">จำนวนงาน (Ngan)</label>
+      <input type="number" id="landNgan" value="0" min="0" max="3" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px; font-family: 'Montserrat', sans-serif;">
     </div>
     <div>
-      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px;">ตารางวา (Sq.Wah)</label>
-      <input type="number" id="landWah" value="0" min="0" max="99" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px;">
+      <label style="font-size: 10px; color: #c9a84c; text-transform: uppercase; display:block; margin-bottom:4px; font-family: 'Montserrat', sans-serif;">ตารางวา (Sq.Wah)</label>
+      <input type="number" id="landWah" value="0" min="0" max="99" style="width:100%; padding: 10px; background: #0d0f14; border: 1px solid rgba(201,168,76,0.2); color: #f2ede6; border-radius:2px; font-family: 'Montserrat', sans-serif;">
     </div>
   </div>
 
-  <button onclick="generateLandAnalysisWithAI()" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #851c1c 0%, #a52020 50%); color: #f2ede6; border: none; font-weight: 700; cursor: pointer; letter-spacing: 0.15em; text-transform: uppercase; border-radius: 2px; transition: background 0.3s;">
+  <button onclick="generateLandAnalysisWithAI()" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #851c1c 0%, #a52020 50%); color: #f2ede6; border: none; font-weight: 700; cursor: pointer; letter-spacing: 0.15em; text-transform: uppercase; border-radius: 2px; transition: background 0.3s; font-family: 'Montserrat', sans-serif;">
     Run AI Investment Engine
   </button>
 </div>
 
 <div class="ticker-wrap">
   <div class="ticker-track">
-    <span class="ticker-item"><span class="dot"></span><span class="tag">LISTING STATUS</span><span class="sep">|</span><span id="tickName">Thong Lo Mixed-Use Plot</span><span class="sep">·</span><span id="tickRai" class="val">4 Rai</span></span>
+    <span class="ticker-item"><span class="dot"></span><span class="tag">LISTING STATUS</span><span class="sep">|</span><span id="tickName">Thong Lo Mixed-Use Plot</span><span class="sep">·</span><span id="tickRai" class="val">4 ไร่</span></span>
     <span class="ticker-item"><span class="dot"></span><span class="tag">TOTAL INVESTMENT</span><span class="sep">|</span><span id="tickPrice" class="val">THB 1,600,000,000</span></span>
     <span class="ticker-item"><span class="dot"></span><span class="tag">LAND TITLE GRADE</span><span class="sep">|</span><span class="val">Chanote (โฉนด) — Freehold</span></span>
     <span class="ticker-item"><span class="dot"></span><span class="tag">ADVISORY FIRM</span><span class="sep">|</span>JOE COLLECTION · Institutional Investment Dealmaker</span>
@@ -84,7 +83,7 @@
         </div>
         <div class="profile-meta">
           <div id="cardTitle" class="land-title">Thong Lo Mixed-Use Plot<br>Bangkok CBD</div>
-          <div id="cardSubtitle" class="land-subtitle">4 Rai · Prime Development Parcel</div>
+          <div id="cardSubtitle" class="land-subtitle">4 ไร่ · Prime Development Parcel</div>
           <div class="meta-tags">
             <span class="meta-tag">Chanote Title</span>
             <span class="meta-tag">High Density Zone</span>
@@ -97,7 +96,7 @@
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div id="statRai" class="stat-val">4</div>
+          <div id="statRai" class="stat-val">4.00</div>
           <div class="stat-label">Rai Total</div>
         </div>
         <div class="stat-card">
@@ -109,7 +108,7 @@
           <div class="stat-label">THB / Rai</div>
         </div>
         <div class="stat-card">
-          <div id="statPerWa" class="stat-val">1.0M</div>
+          <div id="statPerWa" class="stat-val">1.00M</div>
           <div class="stat-label">THB / Sq.Wah</div>
         </div>
       </div>
@@ -134,7 +133,7 @@
           <tbody>
             <tr>
               <td>Land Metric Scale</td>
-              <td id="tableArea" class="highlight">4 Rai (6,400 m²)</td>
+              <td id="tableArea" class="highlight">4 ไร่ (6,400 m²)</td>
               <td><span class="pill">✓ Verified</span></td>
             </tr>
             <tr>
